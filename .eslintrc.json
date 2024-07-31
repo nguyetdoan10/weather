@@ -1,0 +1,70 @@
+ {
+  "root": true,
+  "env": { "browser": true, "es2020": true },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:react-hooks/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest",
+    "project": ["./tsconfig.json", "./tsconfig.node.json", "./tsconfig.app.json"],
+    "tsconfigRootDir": "."
+
+  },
+  "plugins": [
+    "react-refresh",
+    "simple-import-sort",
+    "jsx-a11y",
+    "@emotion",
+    "import",
+    "react",
+    "@typescript-eslint",
+    "react-hooks"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          ["^react", "^@?\\w"], // Packages `react` related packages come first.
+          ["^\\u0000"], // Side effect imports.
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"], // Parent imports. Put `..` last.
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"], // Other relative imports. Put same-folder imports and `.` last.
+          ["^.+\\.?(styled).?$"], // Styled components imports.
+          ["^.+\\.?(css)$"] // Style imports.
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "warn",
+    "import/first": "warn",
+    "import/newline-after-import": "warn",
+    "import/no-duplicates": "warn",
+    "react/display-name": "warn",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-debugger": ["warn"]
+  },
+  "overrides": [
+    {
+      "files": ["*.styled.ts", "*.styled.tsx"],
+      "rules": {
+        "@emotion/syntax-preference": ["warn", "object"]
+      }
+    }
+  ],
+  "ignorePatterns": [
+    "dist"
+  ]
+}

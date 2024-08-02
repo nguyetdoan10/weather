@@ -69,3 +69,8 @@ export const StyledTime = styled.time`
     text-align: end;
   }
 `;
+
+export const StyledNotFound = styled.div`
+  padding-top: 16px;
+  color: ${(props) => props.theme.palette.error.main};
+`;

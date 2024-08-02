@@ -12,6 +12,7 @@ import {
   LeftWrapper,
   RightWrapper,
   StyledLocation,
+  StyledNotFound,
   StyledTempInfo,
   StyledTime,
   WeatherDetailWrapper,
@@ -40,16 +41,7 @@ export function WeatherInfo() {
   }, [searchValue]);
 
   if (isNotFound) {
-    return (
-      <div
-        style={{
-          paddingTop: 16,
-          color: 'red',
-        }}
-      >
-        Not found
-      </div>
-    );
+    return <StyledNotFound>Not found</StyledNotFound>;
   }
 
   if (!isNotFound && !weatherData) {

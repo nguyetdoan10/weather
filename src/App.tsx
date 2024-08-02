@@ -1,5 +1,7 @@
+import { AppRoutes } from './routes';
+
 function App() {
-  return <div className="card">App</div>;
+  return <AppRoutes />;
 }
 
 export default App;

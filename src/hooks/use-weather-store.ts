@@ -38,7 +38,7 @@ export const useWeatherStore = create<WeatherStore>()(
       },
     }),
     {
-      name: 'weather',
+      name: 'search-list',
       storage: createJSONStorage(() => localStorage),
       partialize: (state: WeatherStore) => ({
         searchList: state.searchList,
